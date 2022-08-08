@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_mobile_app/screens/home/homeScreen.dart';
+import 'package:medical_mobile_app/screens/frontScreen.dart';
 import 'package:medical_mobile_app/screens/welcome/background.dart';
 
 class Body extends StatelessWidget {
@@ -87,7 +87,7 @@ class Body extends StatelessWidget {
                 FloatingActionButton(
                   onPressed: () => Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
+                      builder: (context) => FrontScreen(),
                     ),
                   ),
                   child: Icon(Icons.arrow_forward),
