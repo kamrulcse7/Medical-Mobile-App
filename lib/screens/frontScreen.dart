@@ -24,6 +24,7 @@ class _FrontScreenState extends State<FrontScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // extendBody: false,
       body: page[_selectedIndex],
       bottomNavigationBar: TabBarMaterialWidget(
         index: _selectedIndex,
