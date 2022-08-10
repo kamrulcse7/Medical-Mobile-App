@@ -41,6 +41,24 @@ final users = User(
       country: "United Kingdom",
       imgUrl: "michael.jpg",
     ),
+    Patient(
+      name: "James",
+      surname: "Robert",
+      gender: "Male",
+      birthDate: "July 16, 1989",
+      city: "London",
+      country: "United Kingdom",
+      imgUrl: "james.jpg",
+    ),
+    Patient(
+      name: "Jennifer",
+      surname: "Simpson",
+      gender: "Female",
+      birthDate: "July 16, 1980",
+      city: "London",
+      country: "United Kingdom",
+      imgUrl: "jennifer.jpg",
+    ),
   ],
 
   /// doctors

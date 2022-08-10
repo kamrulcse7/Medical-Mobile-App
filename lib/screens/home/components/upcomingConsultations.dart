@@ -123,7 +123,7 @@ class _UpcomingConsultationsState extends State<UpcomingConsultations> {
                         fontWeight: FontWeight.w700,
                         color: _selectedIndex == index
                             ? Colors.white
-                            : Color(0xFF00dca7),
+                            : Color.fromARGB(200, 9, 176, 143),
                       ),
                     ),
                     Text(
