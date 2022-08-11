@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medical_mobile_app/data/data.dart';
-import 'package:medical_mobile_app/models/doctor.dart';
 
 import '../../../widgets/myCustomButton.dart';
 

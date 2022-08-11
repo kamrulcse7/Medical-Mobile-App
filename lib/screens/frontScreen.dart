@@ -29,6 +29,7 @@ class _FrontScreenState extends State<FrontScreen> {
       bottomNavigationBar: TabBarMaterialWidget(
         index: _selectedIndex,
         onChangedTab: onChangedTab,
+        
       ),
     );
   }

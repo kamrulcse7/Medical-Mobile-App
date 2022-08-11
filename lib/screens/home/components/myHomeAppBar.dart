@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
+
 class MyHomeAppBar extends StatelessWidget {
   const MyHomeAppBar({
     Key? key,
-  }) : super(key: key);
+    
+    required GlobalKey<ScaffoldState> scaffoldkey,
+  }) : _scaffoldkey = scaffoldkey, super(key: key);
+
+  final GlobalKey<ScaffoldState> _scaffoldkey;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,8 @@ class MyHomeAppBar extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 30.0,
-            backgroundImage: AssetImage("assets/images/doctor1.png"),
+            backgroundImage:
+                AssetImage("assets/images/patients/jasica.jpg"),
             backgroundColor: Colors.grey,
           ),
           SizedBox(
@@ -42,7 +48,9 @@ class MyHomeAppBar extends StatelessWidget {
           ),
           Spacer(),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              _scaffoldkey.currentState!.openEndDrawer();
+            },
             icon: Icon(
               Icons.format_align_right_sharp,
               size: 36.0,
