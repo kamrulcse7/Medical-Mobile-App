@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medical_mobile_app/data/data.dart';
-import 'package:medical_mobile_app/models/patient.dart';
-import 'package:medical_mobile_app/models/user.dart';
-
-import '../../models/doctor.dart';
 
 class ProfileDetails extends StatelessWidget {
   ProfileDetails({
@@ -13,7 +9,7 @@ class ProfileDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    List<Doctor>? doctor = users.doctors;
+    var patient = users.patients![0];
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -53,8 +49,8 @@ class ProfileDetails extends StatelessWidget {
                       child: CircleAvatar(
                         radius: 35.0,
                         backgroundColor: Colors.grey.shade200,
-                        backgroundImage:
-                            AssetImage("assets/images/patients/jasica.jpg"),
+                        backgroundImage: AssetImage(
+                            "assets/images/patients/${patient.imgUrl}"),
                       ),
                     ),
                     SizedBox(
@@ -62,10 +58,10 @@ class ProfileDetails extends StatelessWidget {
                     ),
                     Text.rich(
                       TextSpan(
-                        text: "Jessica Simpson\n",
+                        text: "${patient.name} ${patient.surname}\n",
                         children: [
                           TextSpan(
-                            text: "Female",
+                            text: "${patient.gender}",
                             style: TextStyle(
                               color: Colors.blue.shade300,
                               fontSize: 16.0,
@@ -139,126 +135,11 @@ class ProfileDetails extends StatelessWidget {
                       // padding: EdgeInsets.symmetric(horizontal: 10.0),
                       child: Column(
                         children: [
-                          Container(
-                            margin: EdgeInsets.only(bottom: 10.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Name",
-                                  style: TextStyle(
-                                    color: Colors.black45,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                Text(
-                                  "Jassica",
-                                  style: TextStyle(
-                                    color: Color(0xFF0052A8),
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 10.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Surename",
-                                  style: TextStyle(
-                                    color: Colors.black45,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                Text(
-                                  "Simpson",
-                                  style: TextStyle(
-                                    color: Color(0xFF0052A8),
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 10.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Date of birth",
-                                  style: TextStyle(
-                                    color: Colors.black45,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                Text(
-                                  "July 16, 1990 (30y)",
-                                  style: TextStyle(
-                                    color: Color(0xFF0052A8),
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 10.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "City",
-                                  style: TextStyle(
-                                    color: Colors.black45,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                Text(
-                                  "London",
-                                  style: TextStyle(
-                                    color: Color(0xFF0052A8),
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 10.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Country",
-                                  style: TextStyle(
-                                    color: Colors.black45,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                Text(
-                                  "United Kingdom",
-                                  style: TextStyle(
-                                    color: Color(0xFF0052A8),
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          _info("Name", "${patient.name}"),
+                          _info("Surename", "${patient.surname}"),
+                          _info("Date of birth", "${patient.birthDate}"),
+                          _info("City", "${patient.city}"),
+                          _info("Country", "${patient.country}"),
                         ],
                       ),
                     ),
@@ -297,7 +178,9 @@ class ProfileDetails extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(width: 20.0,),
+                          SizedBox(
+                            width: 20.0,
+                          ),
                           Text.rich(
                             TextSpan(
                               text: "Anna Kowalsky\n",
@@ -327,6 +210,33 @@ class ProfileDetails extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  _info(String title, String data) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              color: Colors.black45,
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          Text(
+            data,
+            style: TextStyle(
+              color: Color(0xFF0052A8),
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
       ),
     );
   }

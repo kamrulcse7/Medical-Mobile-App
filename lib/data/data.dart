@@ -1,6 +1,8 @@
 import 'package:medical_mobile_app/models/doctor.dart';
 import 'package:medical_mobile_app/models/patient.dart';
 import 'package:medical_mobile_app/models/user.dart';
+import 'package:medical_mobile_app/screens/home/components/patientProfiles.dart';
+
 
 final users = User(
   patients: [
