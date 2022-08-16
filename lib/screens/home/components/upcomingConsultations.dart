@@ -12,7 +12,7 @@ class UpcomingConsultations extends StatefulWidget {
 }
 
 class _UpcomingConsultationsState extends State<UpcomingConsultations> {
-  Color _color = Colors.amber;
+  // Color _color = Colors.amber;
   int _selectedIndex = 0;
 
   @override
@@ -55,7 +55,7 @@ class _UpcomingConsultationsState extends State<UpcomingConsultations> {
                 itemCount: users.doctors!.length,
                 itemBuilder: (context, index) {
                   Doctor doctor = users.doctors![index];
-                  int _selectedIndex = 0;
+                  // int _selectedIndex = 0;
                   return doctorContainer(context, doctor, index);
                 },
               ),
